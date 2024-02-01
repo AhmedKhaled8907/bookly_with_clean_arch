@@ -1,7 +1,7 @@
 import 'package:bookly_with_clean_arch/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_with_clean_arch/core/utils/api_service.dart';
 
-import '../../domain/entities/book_entity.dart';
+import '../../../domain/entities/book_entity.dart';
 import 'home_remote_data_source.dart';
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
