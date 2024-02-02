@@ -14,7 +14,10 @@ class SimilarBooksListview extends StatelessWidget {
           itemBuilder: (context, index) {
             return const Padding(
               padding: EdgeInsets.symmetric(horizontal: 5),
-              child: CustomBookImage(),
+              child: CustomBookImage(
+                imageUrl:
+                    'https://www.theguardian.com/football/2018/jul/11/cristiano-ronaldo-leaving-real-madrid-end-cold#img-1',
+              ),
             );
           }),
     );
