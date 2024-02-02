@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
-import 'best_seller_list_view.dart';
+import 'newsest_books/newest_books_list_view.dart';
 import 'custom_app_bar.dart';
-import 'featured_list_view.dart';
+import 'featured_books/featured_books_section.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({Key? key}) : super(key: key);
@@ -18,15 +18,10 @@ class HomeViewBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomAppBar(),
-                Text(
-                  'Featured Books',
-                  style: Styles.textStyle24,
-                ),
-                SizedBox(height: 20),
-                FeaturedBooksListView(),
+                FeaturedBooksSection(),
                 SizedBox(height: 50),
                 Text(
-                  'Best Seller',
+                  'Newest Books',
                   style: Styles.textStyle24,
                 ),
                 SizedBox(height: 20),
@@ -34,7 +29,7 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           SliverFillRemaining(
-            child: BestSellerListView(),
+            child: NewestBooksListView(),
           ),
         ],
       ),

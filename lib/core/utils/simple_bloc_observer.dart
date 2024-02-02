@@ -7,7 +7,7 @@ class SimpleBlocObserver extends BlocObserver {
     super.onEvent(bloc, event);
     debugPrint('{bloc $bloc event : $Change}');
   }
-
+  
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
     debugPrint('{bloc $bloc error : $Change}');
