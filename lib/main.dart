@@ -17,8 +17,8 @@ import 'core/utils/functions/setup_service_locator.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
-  await Hive.openBox(kFeaturedBox);
-  await Hive.openBox(kNewestBox);
+  await Hive.openBox<BookEntity>(kFeaturedBox);
+  await Hive.openBox<BookEntity>(kNewestBox);
 
   Bloc.observer = SimpleBlocObserver();
   setupServiceLocator();
