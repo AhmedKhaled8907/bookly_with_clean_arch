@@ -1,4 +1,8 @@
+import 'package:bookly_with_clean_arch/Features/home/presentation/manger/cubits/newest_books_cubit/newest_books_cubit.dart';
+import 'package:bookly_with_clean_arch/core/widgets/custom_circular_indicator.dart';
+import 'package:bookly_with_clean_arch/core/widgets/custom_error_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/styles.dart';
 import 'newsest_books/newest_books_list_view.dart';
 import 'custom_app_bar.dart';
@@ -29,10 +33,35 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           SliverFillRemaining(
-            child: NewestBooksListView(),
+            child: NewestBooksListViewBlocBuilder(),
           ),
         ],
       ),
+    );
+  }
+}
+
+class NewestBooksListViewBlocBuilder extends StatelessWidget {
+  const NewestBooksListViewBlocBuilder({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<NewestBooksCubit, NewestBooksState>(
+      builder: (context, state) {
+        if (state is NewestBooksSuccess) {
+          return NewestBooksListView(
+            books: state.books,
+          );
+        } else if (state is NewestBooksFailure) {
+          return CustomErrorWidget(
+            errMessage: state.errMessage,
+          );
+        } else {
+          return const CustomCircularIndicator();
+        }
+      },
     );
   }
 }
