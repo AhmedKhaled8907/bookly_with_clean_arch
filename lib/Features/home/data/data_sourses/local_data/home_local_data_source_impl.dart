@@ -18,4 +18,10 @@ class HomeLocalDataSourceImpl extends HomeLocalDataSource {
 
     return box.values.toList();
   }
+
+  @override
+  List<BookEntity> fetchSimilarBooks() {
+    var box = Hive.box<BookEntity>(kSimilarBox);
+    return box.values.toList();
+  }
 }
