@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/styles.dart';
-import 'similar_books_list_view.dart';
+import 'similar_books_list_view_bloc_builder.dart';
 
 class SimilarBooksSection extends StatelessWidget {
   const SimilarBooksSection({super.key});
@@ -17,11 +17,10 @@ class SimilarBooksSection extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        const SizedBox(
-          height: 16,
-        ),
-        const SimilarBooksListview(),
+        const SizedBox(height: 16),
+        const SimilarBooksListviewBlocBuilder(),
       ],
     );
   }
 }
+

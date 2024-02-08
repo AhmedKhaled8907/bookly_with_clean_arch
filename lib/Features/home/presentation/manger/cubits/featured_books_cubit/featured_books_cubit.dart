@@ -1,20 +1,29 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:bookly_with_clean_arch/Features/home/domain/entities/book_entity.dart';
-import 'package:bookly_with_clean_arch/Features/home/domain/use_cases/fetch_featured_books_use_case.dart';
+
 import 'package:flutter/foundation.dart';
 
-part 'featured_books_state.dart';
+import '../../../../domain/use_cases/fetch_featured_books_use_case.dart';
 
-class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
+part 'featured_books_state.dart';
+part 'featured_event.dart';
+
+class FeaturedBooksCubit extends Bloc<FeaturedBooksEvent, FeaturedBooksState> {
   FeaturedBooksCubit(this.fetchFeaturedBooksUseCase)
-      : super(FeaturedBooksInitial());
+      : super(FeaturedBooksInitial()) {
+    on<FeaturedBooksClickedEvent>(featuredBooksClickedEvent);
+  }
 
   final FetchFeaturedBooksUseCase fetchFeaturedBooksUseCase;
 
-  Future<void> fetchFeaturedBooks({int pageNumber = 0}) async {
+  FutureOr<void> featuredBooksClickedEvent(
+    FeaturedBooksClickedEvent event,
+    Emitter<FeaturedBooksState> emit,
+  ) async {
     emit(FeaturedBooksLoading());
-
-    final result = await fetchFeaturedBooksUseCase.call(pageNumber);
+    final result = await fetchFeaturedBooksUseCase.call();
 
     result.fold(
       (failure) => emit(FeaturedBooksFailure(failure.errMessage)),
