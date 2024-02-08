@@ -16,7 +16,9 @@ class BookDetailsViewBody extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         const SliverAppBar(
+          automaticallyImplyLeading: false,
           // Your app bar configurations here
+          backgroundColor: Colors.transparent,
           title: CustomBookDetailsAppBar(),
           // Other SliverAppBar configurations...
         ),
@@ -28,7 +30,7 @@ class BookDetailsViewBody extends StatelessWidget {
                 BookDetailsSection(book: book),
                 const SizedBox(height: 50),
                 const SimilarBooksSection(),
-                const SizedBox(height: 40),
+                const SizedBox(height: 25),
               ],
             ),
           ),
