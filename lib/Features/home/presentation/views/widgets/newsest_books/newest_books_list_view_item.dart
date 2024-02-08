@@ -1,5 +1,3 @@
-import 'package:bookly_with_clean_arch/Features/home/domain/entities/book_entity.dart';
-import 'package:bookly_with_clean_arch/Features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
@@ -7,7 +5,9 @@ import 'package:go_router/go_router.dart';
 import '../../../../../../constants.dart';
 import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/styles.dart';
+import '../../../../domain/entities/book_entity.dart';
 import '../book_rating.dart';
+import '../custom_book_item.dart';
 
 class BookListViewItem extends StatelessWidget {
   const BookListViewItem({super.key, required this.book});
