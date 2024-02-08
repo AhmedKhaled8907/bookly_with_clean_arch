@@ -27,8 +27,11 @@ class FeaturedBooksListView extends StatelessWidget {
                     extra: books[index],
                   );
                 },
-                child: CustomBookImage(
-                  imageUrl: books[index].image ?? '',
+                child: Hero(
+                  tag: books[index],
+                  child: CustomBookImage(
+                    imageUrl: books[index].image ?? '',
+                  ),
                 ),
               ),
             );

@@ -26,7 +26,10 @@ class BookListViewItem extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.15,
         child: Row(
           children: [
-            CustomBookImage(imageUrl: book.image ?? ''),
+            Hero(
+              tag: book,
+              child: CustomBookImage(imageUrl: book.image ?? ''),
+            ),
             const SizedBox(width: 30),
             Expanded(
               child: Column(
