@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../custom_book_item.dart';
+import '../custom_book_image.dart';
 import 'package:bookly_with_clean_arch/Features/home/domain/entities/book_entity.dart';
 import 'package:bookly_with_clean_arch/core/utils/app_router.dart';
 

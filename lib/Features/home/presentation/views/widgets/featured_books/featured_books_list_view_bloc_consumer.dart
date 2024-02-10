@@ -1,6 +1,6 @@
 import 'package:bookly_with_clean_arch/Features/home/domain/entities/book_entity.dart';
 import 'package:bookly_with_clean_arch/Features/home/presentation/manger/cubits/featured_books_cubit/featured_books_cubit.dart';
-import 'package:bookly_with_clean_arch/core/widgets/custom_circular_indicator.dart';
+import 'package:bookly_with_clean_arch/Features/home/presentation/views/widgets/featured_books/featured_books_list_view_loading_indicator.dart';
 import 'package:bookly_with_clean_arch/core/widgets/custom_error_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,7 +45,7 @@ class _FeaturedBooksListViewBlocConsumerState
             errMessage: state.errMessage,
           );
         } else {
-          return const CustomCircularIndicator();
+          return const FeaturedBooksListViewLoadingIndicator();
         }
       },
     );

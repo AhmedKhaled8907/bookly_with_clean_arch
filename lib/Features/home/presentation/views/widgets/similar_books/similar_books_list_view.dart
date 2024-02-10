@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/widgets/custom_error_widget.dart';
 import '../../../manger/cubits/similar_books_bloc/similar_books_bloc.dart';
-import '../custom_book_item.dart';
+import '../custom_book_image.dart';
 
 class SimilarBooksListview extends StatelessWidget {
   const SimilarBooksListview({super.key});
