@@ -1,4 +1,3 @@
-import 'package:bookly_with_clean_arch/Features/home/presentation/manger/cubits/featured_books_bloc/featured_books_bloc.dart';
 import 'package:bookly_with_clean_arch/core/utils/simple_bloc_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +7,7 @@ import 'Features/home/data/repos/home_repo_impl.dart';
 import 'Features/home/domain/use_cases/fetch_featured_books_use_case.dart';
 import 'Features/home/domain/use_cases/fetch_newest_books_use_case.dart';
 
+import 'Features/home/presentation/manger/cubits/featured_books_cubit/featured_books_cubit.dart';
 import 'Features/home/presentation/manger/cubits/newest_books_cubit/newest_books_cubit.dart';
 import 'constants.dart';
 import 'core/utils/app_router.dart';
@@ -30,13 +30,11 @@ class Bookly extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FeaturedBooksBloc(
+          create: (context) => FeaturedBooksCubit(
             FetchFeaturedBooksUseCase(
               getIt.get<HomeRepoImpl>(),
             ),
-          )..add(
-              FeaturedBooksClickedEvent(),
-            ),
+          )..fetchFeaturedBooks(),
         ),
         BlocProvider(
           create: (context) => NewestBooksCubit(

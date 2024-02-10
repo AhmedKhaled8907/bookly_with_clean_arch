@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/styles.dart';
-import 'featured_list_view_bloc_builder.dart';
+import 'featured_books_list_view_bloc_builder.dart';
 
 class FeaturedBooksSection extends StatelessWidget {
   const FeaturedBooksSection({
