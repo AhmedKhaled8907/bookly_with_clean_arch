@@ -7,6 +7,8 @@ class FeaturedBooksInitial extends FeaturedBooksState {}
 
 class FeaturedBooksLoading extends FeaturedBooksState {}
 
+class FeaturedBooksPaginaitonLoading extends FeaturedBooksState {}
+
 class FeaturedBooksFailure extends FeaturedBooksState {
   final String errMessage;
 
