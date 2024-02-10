@@ -1,4 +1,4 @@
-part of 'featured_books_cubit.dart';
+part of 'featured_books_bloc.dart';
 
 @immutable
 sealed class FeaturedBooksState {}
