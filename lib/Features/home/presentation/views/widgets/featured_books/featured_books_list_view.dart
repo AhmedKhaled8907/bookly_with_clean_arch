@@ -8,8 +8,7 @@ import 'package:bookly_with_clean_arch/Features/home/domain/entities/book_entity
 import 'package:bookly_with_clean_arch/core/utils/app_router.dart';
 
 class FeaturedBooksListView extends StatefulWidget {
-  const FeaturedBooksListView({Key? key, required this.books})
-      : super(key: key);
+  const FeaturedBooksListView({super.key, required this.books});
 
   final List<BookEntity> books;
 
@@ -36,13 +35,13 @@ class FeaturedBooksListViewState extends State<FeaturedBooksListView> {
     super.dispose();
   }
 
-  void _scrollListener() {
+  void _scrollListener() async {
     final currentPosition = _scrollController.position.pixels;
     final maxScrollMax = _scrollController.position.maxScrollExtent;
     if (currentPosition >= maxScrollMax * 0.7) {
       if (!isloading) {
         isloading = true;
-        BlocProvider.of<FeaturedBooksCubit>(context).fetchFeaturedBooks(
+        await BlocProvider.of<FeaturedBooksCubit>(context).fetchFeaturedBooks(
           pageNumber: nextPage++,
         );
         isloading = false;

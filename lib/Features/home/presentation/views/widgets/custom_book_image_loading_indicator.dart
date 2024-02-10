@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomBookImageLoadingIndicator extends StatelessWidget {
-  const CustomBookImageLoadingIndicator({Key? key}) : super(key: key);
+  const CustomBookImageLoadingIndicator({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 
 class FeaturedBooksListViewLoadingIndicator extends StatelessWidget {
-  const FeaturedBooksListViewLoadingIndicator({Key? key}) : super(key: key);
+  const FeaturedBooksListViewLoadingIndicator({super.key});
 
   @override
   Widget build(BuildContext context) {

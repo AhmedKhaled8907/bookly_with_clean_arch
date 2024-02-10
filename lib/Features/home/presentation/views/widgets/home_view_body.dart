@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
 import 'custom_app_bar.dart';
 import 'featured_books/featured_books_section.dart';
-import 'newsest_books/newest_books_list_view_bloc_builder.dart';
+import 'newsest_books/newest_books_list_view_bloc_consumer.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({Key? key}) : super(key: key);
+  const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 30),
       child: CustomScrollView(
+        physics: BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: Column(
@@ -29,11 +30,10 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           SliverFillRemaining(
-            child: NewestBooksListViewBlocBuilder(),
+            child: NewestBooksListViewBlocConsumer(),
           ),
         ],
       ),
     );
   }
 }
-
