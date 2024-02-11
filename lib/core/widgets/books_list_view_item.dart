@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
 
-import '../../../../../../constants.dart';
-import '../../../../../../core/utils/app_router.dart';
-import '../../../../../../core/utils/styles.dart';
-import '../../../../domain/entities/book_entity.dart';
-import '../book_rating.dart';
-import '../custom_book_image.dart';
+import '../../constants.dart';
+import '../utils/app_router.dart';
+import '../utils/styles.dart';
+import '../../Features/home/domain/entities/book_entity.dart';
+import '../../Features/home/presentation/views/widgets/book_rating.dart';
+import '../../Features/home/presentation/views/widgets/custom_book_image.dart';
 
 class BookListViewItem extends StatelessWidget {
   const BookListViewItem({super.key, required this.book});

@@ -3,7 +3,7 @@ import 'package:bookly_with_clean_arch/Features/home/presentation/manger/cubits/
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'newest_books_list_view_item.dart';
+import '../../../../../../core/widgets/books_list_view_item.dart';
 
 class NewestBooksListView extends StatefulWidget {
   const NewestBooksListView({super.key, required this.books});

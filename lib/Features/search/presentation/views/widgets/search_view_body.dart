@@ -1,10 +1,11 @@
+import 'package:bookly_with_clean_arch/Features/search/presentation/views/widgets/search_result_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
 
-import 'custom_search_text_field.dart';
-import 'search_result_list_view.dart';
+import 'custom_search_form_text_field.dart';
+import 'search_view_body_bloc_consumer.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -19,19 +20,12 @@ class SearchViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomSearchTextField(),
-          SizedBox(
-            height: 16,
-          ),
-          Text(
-            'Search Result',
-            style: Styles.textStyle18,
-          ),
-          SizedBox(
-            height: 16,
-          ),
+          CustomSearchFormTextField(),
+          SizedBox(height: 24),
+          SearchResultText(),
+          SizedBox(height: 24),
           Expanded(
-            child: SearchResultListView(),
+            child: SearchResultListViewBlocConsumer(),
           ),
         ],
       ),
