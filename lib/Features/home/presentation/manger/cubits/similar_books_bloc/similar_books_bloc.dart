@@ -7,25 +7,28 @@ import 'package:flutter/foundation.dart';
 import '../../../../domain/entities/book_entity.dart';
 import '../../../../domain/use_cases/fetch_similar_books_use_case.dart';
 
-part 'similar_books_event.dart';
 part 'similar_books_state.dart';
 
-class SimilarBooksBloc extends Bloc<SimilarBooksEvent, SimilarBooksState> {
-  SimilarBooksBloc(this.fetchSimilarBooksUseCase)
-      : super(SimilarBooksInitial()) {
-    on<SimilarBooksClickedEvent>(similarBooksClickedEvent);
-  }
+class SimilarBooksCubit extends Cubit<SimilarBooksState> {
+  SimilarBooksCubit(this.fetchSimilarBooksUseCase)
+      : super(SimilarBooksInitial());
+
   final FetchSimilarBooksUseCase fetchSimilarBooksUseCase;
-
-  FutureOr<void> similarBooksClickedEvent(
-      SimilarBooksClickedEvent event, Emitter<SimilarBooksState> emit,
-      {int pageNumber = 0}) async {
-    emit(SimilarBooksLoading());
-    final result = await fetchSimilarBooksUseCase.call(pageNumber);
-
-    result.fold(
-      (failure) => emit(SimilarBooksFailure(failure.errMessage)),
-      (books) => emit(SimilarBooksSuccess(books)),
-    );
+  Future<void> fetchSimilarBooks({int pageNumber = 0}) async {
+    if (pageNumber == 0) {
+      emit(SimilarBooksLoading());
+    } else {
+      emit(SimilarBooksPaginaitonLoading());
+    }
+    var result = await fetchSimilarBooksUseCase.call(pageNumber);
+    result.fold((failure) {
+      if (pageNumber == 0) {
+        emit(SimilarBooksFailure(failure.errMessage));
+      } else {
+        emit(SimilarBooksPaginaitonFailure(failure.errMessage));
+      }
+    }, (books) {
+      emit(SimilarBooksSuccess(books));
+    });
   }
 }

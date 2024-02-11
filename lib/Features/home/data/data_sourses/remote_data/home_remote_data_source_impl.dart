@@ -33,7 +33,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   @override
   Future<List<BookEntity>> fetchSimilarBooks({int pageNumber = 0}) async {
     String endPoint =
-        'volumes?Filtering=free-ebooks&Sorting=newest&q=fantasy&startIndex=${pageNumber * 10}';
+        'volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:horror&startIndex=${pageNumber * 10}';
     final data = await apiService.get(endPoint: endPoint);
     List<BookEntity> books = getBooksList(data);
     saveBooksData(books, kSimilarBox);

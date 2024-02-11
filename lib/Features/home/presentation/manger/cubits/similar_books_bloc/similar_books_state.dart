@@ -8,6 +8,14 @@ final class SimilarBooksInitial extends SimilarBooksState {}
 
 final class SimilarBooksLoading extends SimilarBooksState {}
 
+class SimilarBooksPaginaitonLoading extends SimilarBooksState {}
+
+class SimilarBooksPaginaitonFailure extends SimilarBooksState {
+  final String errMessage;
+
+  SimilarBooksPaginaitonFailure(this.errMessage);
+}
+
 final class SimilarBooksSuccess extends SimilarBooksState {
   final List<BookEntity> books;
 
