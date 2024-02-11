@@ -18,11 +18,10 @@ class SimilarBooksBloc extends Bloc<SimilarBooksEvent, SimilarBooksState> {
   final FetchSimilarBooksUseCase fetchSimilarBooksUseCase;
 
   FutureOr<void> similarBooksClickedEvent(
-    SimilarBooksClickedEvent event,
-    Emitter<SimilarBooksState> emit,
-  ) async {
+      SimilarBooksClickedEvent event, Emitter<SimilarBooksState> emit,
+      {int pageNumber = 0}) async {
     emit(SimilarBooksLoading());
-    final result = await fetchSimilarBooksUseCase.call();
+    final result = await fetchSimilarBooksUseCase.call(pageNumber);
 
     result.fold(
       (failure) => emit(SimilarBooksFailure(failure.errMessage)),
