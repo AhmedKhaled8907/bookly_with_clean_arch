@@ -67,11 +67,8 @@ class _SimilarBooksListviewState extends State<SimilarBooksListview> {
                     extra: widget.books[index],
                   );
                 },
-                child: Hero(
-                  tag: widget.books[index],
-                  child: CustomBookImage(
-                    imageUrl: widget.books[index].image ?? '',
-                  ),
+                child: CustomBookImage(
+                  imageUrl: widget.books[index].image ?? '',
                 ),
               ),
             );
